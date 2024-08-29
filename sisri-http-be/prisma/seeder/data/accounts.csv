@@ -1,0 +1,4 @@
+id,name,email,password,role,verified
+20d53f93-e004-4b78-93b5-68e765be9c5c,Admin Sisri,admin123@sisri.id,SiSR1##2024,ADMIN,true
+88d87701-e0f6-4055-92f4-4f4b68bf4c3a,User1,user1@gmail.com,hmIT##2024,USER,true
+e0e99db9-bf80-4a64-9892-c8dd21732351User2,User2,user2@gmail.com,hmIT##2024,USER,false
