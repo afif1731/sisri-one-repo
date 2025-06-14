@@ -1,0 +1,9 @@
+[submodule "sisri-mqtt"]
+	path = sisri-mqtt
+	url = https://github.com/afif1731/sisri-mqtt.git
+[submodule "sisri-http-be"]
+	path = sisri-http-be
+	url = https://github.com/afif1731/sisri-http-be.git
+[submodule "sisri-fe"]
+	path = sisri-fe
+	url = https://github.com/iymw/sisri-fe.git
