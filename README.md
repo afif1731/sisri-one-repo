@@ -2,13 +2,13 @@
 
 ## Route
 
-- [Website Frontend](./sisri-fe/)
+- [Website Frontend](https://github.com/iymw/sisri-fe)
 
-- [HTTP Backend](./sisri-http-be/)
+- [HTTP Backend](https://github.com/afif1731/sisri-http-be)
 
 - [Air Quality Sensor](./sisri-air-quality-sensor/)
 
-- [Keperluan MQTT](./sisri-mqtt/)
+- [Keperluan MQTT](https://github.com/afif1731/sisri-mqtt)
 
 - [Vehicle Detection](./sisri-vehicle-detection/)
 
