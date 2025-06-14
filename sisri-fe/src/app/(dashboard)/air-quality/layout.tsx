@@ -4,7 +4,7 @@ import * as React from "react";
 import "@/styles/colors.css";
 
 export const metadata: Metadata = {
-  title: "Login Admin",
+  title: "Air Quality",
   description: "Pre-built components with awesome default",
 };
 

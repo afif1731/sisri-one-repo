@@ -1,9 +1,13 @@
-import React from "react";
-
-import AdminPage from "@/components/dashboard/admin/AdminPage";
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Page = () => {
-  return <AdminPage />;
+  const router = useRouter();
+
+  useEffect(() => router.push("/air-quality"));
+
+  return null;
 };
 
 export default Page;

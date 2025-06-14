@@ -1,7 +1,7 @@
 export const siteConfig = {
-  title: "Next.js + Tailwind CSS + TypeScript Starter",
+  title: "SISRI 2024",
   description:
-    "A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky",
+    "SISRI (Surabaya Integrated Smart Road Infrastructure): Solusi Lalu Lintas Cerdas untuk Mencapai Smart Transport dan Smart Governance di Kota Surabaya",
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: "https://tsnext-tw.thcl.dev",
+  url: "https://sisri-id.com",
 };

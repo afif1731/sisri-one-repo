@@ -17,7 +17,7 @@ export default function LabelText({
     <label>
       <Typography
         variant="bs"
-        weight="bold"
+        weight="semibold"
         className={cn(
           "text-neutral-dark",
           "text-[14px] md:text-[16px] lg:text-[18px]",

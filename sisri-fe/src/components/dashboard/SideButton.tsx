@@ -18,25 +18,28 @@ export type SideButtonProps = {
   className: string;
 } & UnstyledLinkProps;
 
-const SideButton = React.forwardRef<HTMLButtonElement, SideButtonProps>(
-  ({ icon: Icon, classNames, className, children, ...rest }) => {
-    return (
-      <>
-        <UnstyledLink
-          // ref={ref}
-          type="button"
-          {...rest}
-          className={cn(
-            "inline-flex w-full items-center gap-2 py-3 pl-8",
-            className,
-          )}
-        >
-          {Icon && <Icon size="1em" className={cn(classNames?.icon)} />}
-          <Typography className="!text-sm">{children}</Typography>
-        </UnstyledLink>
-      </>
-    );
-  },
-);
+const SideButton = ({
+  icon: Icon,
+  classNames,
+  className,
+  children,
+  ...rest
+}: SideButtonProps) => {
+  return (
+    <>
+      <UnstyledLink
+        type="button"
+        {...rest}
+        className={cn(
+          "inline-flex w-full items-center gap-2 py-3 pl-8",
+          className,
+        )}
+      >
+        {Icon && <Icon size="1em" className={cn(classNames?.icon)} />}
+        <Typography className="!text-sm">{children}</Typography>
+      </UnstyledLink>
+    </>
+  );
+};
 
 export default SideButton;

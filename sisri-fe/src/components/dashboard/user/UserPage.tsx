@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { IconType } from "react-icons";
 import { CiGrid41, CiMail } from "react-icons/ci";
 import { FaHistory } from "react-icons/fa";
-import { IoIosWarning } from "react-icons/io";
+// import { IoIosWarning } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
 
 import SideButton from "@/components/dashboard/SideButton";
 import SideNavbar from "@/components/dashboard/SideNavbar";
-import TopNavbar from "@/components/dashboard/TopNavbar";
 import Typography from "@/components/Typography";
 
 type SideNavItem = {
@@ -26,13 +25,13 @@ const items: SideNavItem[][] = [
       icon: FaHistory,
       href: "/user/riwayat-pembayaran",
     },
-    { text: "Pelanggaran", icon: IoIosWarning, href: "/user/pelanggaran" },
+    // { text: "Pelanggaran", icon: IoIosWarning, href: "/user/pelanggaran" },
   ],
   [
     {
-      text: "Map",
+      text: "Maps",
       icon: SiGooglemaps,
-      href: "/map",
+      href: "/maps",
     },
     { text: "Pengaduan", icon: CiMail, href: "/user/pengaduan" },
   ],
@@ -43,7 +42,6 @@ const UserPage = () => {
 
   return (
     <>
-      <TopNavbar onClick={() => setOpenCloseNav(!openCloseNav)} />
       <div className="flex">
         <SideNavbar
           onClick={() => setOpenCloseNav(!openCloseNav)}

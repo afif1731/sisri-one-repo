@@ -6,19 +6,18 @@ import {
   Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import { MoveLeft } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { CiLocationArrow1 } from "react-icons/ci";
+// import { CiLocationArrow1 } from "react-icons/ci";
 import { FaCar, FaMapMarkerAlt } from "react-icons/fa";
 import { FaRegCircleDot } from "react-icons/fa6";
-import { IoMdClose } from "react-icons/io";
 
+// import { IoMdClose } from "react-icons/io";
 import Button from "@/components/buttons/Button";
 import IconButton from "@/components/buttons/IconButton";
 import Input from "@/components/forms/Input";
-import ButtonLink from "@/components/links/ButtonLink";
 import Typography from "@/components/Typography";
 
 type MapsForm = {
@@ -30,7 +29,7 @@ type Library = "places";
 
 const libraries: Library[] = ["places"];
 
-const KondisiLaluLintas = () => {
+const Maps = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
@@ -39,7 +38,7 @@ const KondisiLaluLintas = () => {
 
   const center = { lat: -7.250445, lng: 112.768845 };
 
-  const [map, setMap] = useState<google.maps.Map | null>(null);
+  // const [map, setMap] = useState<google.maps.Map | null>(null);
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [directionsResponse, setDirectionsResponse] = useState<any | null>(
@@ -47,7 +46,7 @@ const KondisiLaluLintas = () => {
   );
 
   const methods = useForm<MapsForm>({ mode: "onTouched" });
-  const { handleSubmit, reset } = methods;
+  const { handleSubmit } = methods;
 
   const [routeIndex, setRouteIndex] = useState(0);
 
@@ -65,30 +64,38 @@ const KondisiLaluLintas = () => {
     setRouteIndex(0);
   };
 
-  function clearRoute() {
-    setDirectionsResponse(null);
-    reset();
-  }
+  // function clearRoute() {
+  //   setDirectionsResponse(null);
+  //   reset();
+  // }
 
   if (!isLoaded) return <></>;
 
   return (
     <>
       <section className="flex h-auto flex-col md:flex-row">
-        <div className="sticky top-0 flex h-auto w-full flex-col gap-8 overflow-auto bg-white p-8 shadow-lg md:h-screen md:w-6/12 md:translate-x-0">
-          <hgroup className="flex flex-col items-center justify-center gap-4">
-            <Image
-              src="/images/LOGO-PRIMARY.png"
-              width={75}
-              height={75}
-              alt="logo"
-            />
-            <Typography className="!text-base">SISRI Dashboard Map</Typography>
-          </hgroup>
+        <div className="relative top-0 flex h-auto w-full flex-col gap-8 overflow-auto bg-white p-8 shadow-lg md:sticky md:h-screen md:w-full md:translate-x-0">
+          <div className="mx-auto flex w-full flex-col justify-center gap-6 md:w-10/12">
+            <Link href="/">
+              <Image
+                src="/images/LOGO-PRIMARY.png"
+                width={75}
+                height={75}
+                alt="logo"
+              />
+            </Link>
+            <Typography variant="h2" weight="bold">
+              SISRI Dashboard Maps
+            </Typography>
+            <Typography>
+              Temukan destinasi sesuai dengan kebutuhan harianmu secara{" "}
+              <span className="font-bold">cepat</span> bersama Sisri Maps
+            </Typography>
+          </div>
 
           <FormProvider {...methods}>
             <form
-              className="flex flex-col gap-4 md:w-full"
+              className="mx-auto flex w-full flex-col gap-4 md:w-10/12"
               onSubmit={handleSubmit(onSubmit)}
             >
               <Autocomplete>
@@ -112,34 +119,24 @@ const KondisiLaluLintas = () => {
               <Button
                 variant="blue"
                 type="submit"
-                className="flex w-full justify-center"
+                className="mt-4 flex w-full justify-center"
               >
                 Go
               </Button>
             </form>
           </FormProvider>
 
-          <div className="flex flex-col gap-4 md:w-full">
-            <Button
-              leftIcon={CiLocationArrow1}
+          {/* <div className="flex items-center justify-center gap-2">
+            <IconButton icon={IoMdClose} onClick={clearRoute} variant="red" />
+            <IconButton
+              icon={CiLocationArrow1}
               onClick={() => map?.panTo(center)}
               variant="secondary"
-              className="flex w-full justify-center"
-            >
-              Re-centre
-            </Button>
-            <Button
-              leftIcon={IoMdClose}
-              onClick={clearRoute}
-              variant="red"
-              className="flex w-full justify-center"
-            >
-              Clear
-            </Button>
-          </div>
+            />
+          </div> */}
 
           {directionsResponse && (
-            <div className="space-y-2">
+            <div className="mx-auto mt-4 w-full space-y-4 md:w-10/12">
               {directionsResponse.routes.map((route: any, index: number) => (
                 <div
                   key={index}
@@ -160,18 +157,9 @@ const KondisiLaluLintas = () => {
               ))}
             </div>
           )}
-
-          <ButtonLink
-            leftIcon={MoveLeft}
-            variant="ghost"
-            className="w-fit"
-            href="/user"
-          >
-            Back
-          </ButtonLink>
         </div>
 
-        <div className="h-[100vh] w-full">
+        <div className="h-[50vh] w-full md:h-[100vh]">
           <GoogleMap
             mapContainerStyle={{
               height: "100%",
@@ -179,7 +167,7 @@ const KondisiLaluLintas = () => {
             }}
             center={center}
             zoom={10}
-            onLoad={(map) => setMap(map)}
+            // onLoad={(map) => setMap(map)}
           >
             <>
               <Marker position={center} />
@@ -197,4 +185,4 @@ const KondisiLaluLintas = () => {
   );
 };
 
-export default KondisiLaluLintas;
+export default Maps;

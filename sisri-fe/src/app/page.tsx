@@ -1,8 +1,15 @@
 "use client";
-import Home from "@/components/Home";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const Page = () => {
-  return <Home />;
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/maps");
+  }, [router]);
+
+  return null;
 };
 
 export default Page;
